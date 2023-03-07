@@ -1,0 +1,73 @@
+<mvc:View controllerName="com.spm.suppilerportal.controller.LandingView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+	<Page id="page" class="{= ${device>/system/phone} ? '' : 'BgLoginImage'}" backgroundDesign="Transparent" enableScrolling="false" showHeader="false" title="{i18n>title}">
+		<content>
+			<layout:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiLargeMarginTop">
+				<FlexBox alignItems="Start" width="100%" justifyContent="Center">
+					<VBox width="{= ${device>/system/phone} ? '100%' : '35%'}">
+						<FlexBox alignItems="Center" justifyContent="Center">
+							<Image src="/css/image/toplogo.PNG">
+								<layoutData>
+									<layout:GridData span="XL12 L12 M12 S12" linebreak="true"/>
+								</layoutData>
+							</Image>
+						</FlexBox>
+						<form:SimpleForm layout="ResponsiveGridLayout" editable="true">
+							<form:content>
+								<VBox>
+									<Label text="User Name"/>
+									<Input value="{oLanding>/sUserName}"/>
+									<layoutData>
+										<layout:GridData span="XL12 L12 M12 S12" linebreak="true"/>
+									</layoutData>
+								</VBox>
+								<VBox class="sapUiTinyMarginTop">
+									<Label text="Password"/>
+									<Input type="Password" value="{oLanding>/sPassword}"/>
+									<layoutData>
+										<layout:GridData span="XL12 L12 M12 S12" linebreak="true"/>
+									</layoutData>
+								</VBox>
+								<VBox>
+									<Button class="btnclass" type="Emphasized" text="Submit" press="onfnpresssubmit" width="100%"/>
+									<layoutData>
+										<layout:GridData span="XL12 L12 M12 S12" linebreak="true"/>
+									</layoutData>
+								</VBox>
+								<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+									<Link press="onSignUp" text="Not a member? Sign up now">
+										<layoutData>
+											<FlexItemData growFactor="1"/>
+											 <layout:GridData span="XL2 L2 M2 S12" linebreak="true" /> 
+										</layoutData>
+									</Link>
+									<Link visible="{= ${device>/system/phone} ? false : true}" press="onfnForgotPassword" text="Forgot Password">
+										<layoutData>
+											<FlexItemData growFactor="1"/>
+											 <layout:GridData span="XL2 L2 M2 S12" linebreak="true" /> 
+										</layoutData>
+									</Link>
+									<layoutData>
+										<layout:GridData span="XL12 L12 M12 S12" linebreak="true"/>
+									</layoutData>
+								</FlexBox>
+								<FlexBox visible="{= ${device>/system/phone} ? true : false}" alignItems="Start" justifyContent="Start">
+									<Link class="sapUiNoContentPadding sapUiNoMargin" press="onfnForgotPassword" text="Forgot Password"/>
+									<layoutData>
+										<layout:GridData span="XL12 L12 M12 S12" linebreak="true"/>
+									</layoutData>
+								</FlexBox>
+							</form:content>
+						</form:SimpleForm>
+						<layoutData>
+							<layout:GridData span="XL12 L12 M12 S12"/>
+						</layoutData>
+					</VBox>
+					<layoutData>
+						<layout:GridData span="XL12 L12 M12 S12"/>
+					</layoutData>
+				</FlexBox>
+			</layout:Grid>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <FlexBox class="sapUiMediumMarginTop" visible="{genericTileModel>/sStep3}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm width="{oFiexibleLayout>/Width}" title="{i18n>AddressDetails}" layout="ResponsiveGridLayout" labelSpanXL="12" labelSpanL="12" labelSpanM="12" columnsXL="1" columnsL="2" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Label text="{i18n>AddressType}" wrapping="true" design="Bold" labelFor="cbAddressType" />
+                    <ComboBox selectedKey="{oSRModel>/ADDRESS/ADDRESS_TYPE}" items="{oMainModel>/ADR_TYPE}" width="100%" id="cbAddressType" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>AddressLine1}" wrapping="true" design="Bold" labelFor="taAddressLine1" />
+                    <TextArea value="{oSRModel>/ADDRESS/ADDRESS_LINE_1}" width="100%" id="taAddressLine1" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>AddressLine2}" wrapping="true" design="Bold" labelFor="taAddressLine2" />
+                    <TextArea value="{oSRModel>/ADDRESS/ADDRESS_LINE_2}" width="100%" id="taAddressLine2" fieldGroupIds="InputField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>AddressLine3}" wrapping="true" design="Bold" labelFor="taAddressLine3" />
+                    <TextArea value="{oSRModel>/ADDRESS/ADDRESS_LINE_3}" width="100%" id="taAddressLine3" fieldGroupIds="InputField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>CountryCode}" wrapping="true" design="Bold" labelFor="cbCountryCode" />
+                    <ComboBox showSecondaryValues= "true" selectedKey="{oSRModel>/ADDRESS/COUNTRY_CODE}" items="{oMainModel>/T_PHN_CODE}" width="100%" id="cbCountryCode" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:ListItem key="{oMainModel>COUNTRY_CODE}" text="{oMainModel>COUNTRY_NAME}"  additionalText="{oMainModel>COUNTRY_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>State}" wrapping="true" design="Bold" labelFor="cbState" />
+                    <ComboBox showSecondaryValues= "true" selectedKey="{oSRModel>/ADDRESS/STATE}" items="{oMainModel>/T_STATE}" width="100%" id="cbState" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:ListItem key="{oMainModel>STATE_CODE}" text="{oMainModel>STATE_NAME}"  additionalText="{oMainModel>STATE_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>City}" wrapping="true" design="Bold" labelFor="ipCity" />
+                    <Input value="{oSRModel>/ADDRESS/CITY}" width="100%" fieldGroupIds="InputField" required="true" editable="true" id="ipCity" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>PostalCode}" wrapping="true" design="Bold" labelFor="ipPostalCode" />
+                    <Input value="{oSRModel>/ADDRESS/POSTAL_CODE}" id="ipPostalCode" type="Number" width="100%" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Button type="Emphasized" text="{i18n>btnSubmitRegistration}" press="onfnpresssubmit" width="100%" class="button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="false" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>

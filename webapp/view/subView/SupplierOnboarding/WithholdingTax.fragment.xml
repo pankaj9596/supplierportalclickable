@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <FlexBox id="flxBoxWithholdingTax" class="sapUiMediumMarginTop" visible="{genericTileModel>/sStep7}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm width="{oFiexibleLayout>/Width}" title="Withholding Tax Accounting" layout="ResponsiveGridLayout" labelSpanXL="8" labelSpanL="8" labelSpanM="12" columnsXL="1" columnsL="2" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Label text="{i18n>WHTTaxType}" design="Bold" labelFor="cbSOWHTTax" wrapping="true" />
+                    <ComboBox selectedKey="{oSOModel>/BANKSEQID/TAX_TYPE}" items="{oMainModel>/WHT_TAX_TYPE}" width="100%" id="cbSOWHTTax" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>WHTPercentage}" design="Bold" labelFor="cbSOWHTPercentage" wrapping="true" />
+                    <ComboBox selectedKey="{oSOModel>/BANKSEQID/WHT_PERCENT}" items="{oMainModel>/WHT_TAX_PERCENTAGE_TYPE}" width="100%" id="cbSOWHTPercentage" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>WHTTaxCode}" design="Bold" labelFor="cbSOWHTTAXCode" wrapping="true" />
+                    <!--<ComboBox selectedKey="{oSOModel>/BANKSEQID/TAX_NUMBER}" items="{oMainModel>/WHT_TAX_CODE_TYPE}" width="100%" id="cbSOWHTTAXCode" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>-->
+                    <Input value="{oSOModel>/BANKSEQID/TAX_NUMBER}" editable="true" required="true" fieldGroupIds="InputField"></Input>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>ExcemptionPeriodTo}" design="Bold" labelFor="dpSOExcemption" wrapping="true" />
+                    <DatePicker value="{oSOModel>/BANKSEQID/EXEMPTION_PERIOD}" width="100%" id="dpSOExcemption" fieldGroupIds="DateField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Button type="Emphasized" text="{i18n>btnProceedtoOtherInformation}" press="onfnnextpress8" width="100%" class="button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="false" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>

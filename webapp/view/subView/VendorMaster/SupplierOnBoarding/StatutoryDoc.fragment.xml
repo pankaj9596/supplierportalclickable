@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:upload="sap.m.upload" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <VBox>
+            <Label wrapping="true" text="{i18n>DocumentType}" design="Bold" labelFor="cbVSODocType" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ATTACHMENTS/DOCUMENT_TYPE_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/ATTACHMENTS/DOCUMENT_TYPE}"
+                items="{oMainModel>/DOCUMENT_TYPE}"
+                width="100%"
+                id="cbVSODocType"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label wrapping="true" text="{i18n>DocumentDescription}" design="Bold" labelFor="taVDocDescripion" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ATTACHMENTS/DOC_DESCRIPTION}" visible="{oVendorMaster>/bDisplay}" />
+            <TextArea visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/ATTACHMENTS/DOC_DESCRIPTION}" id="taVDocDescripion" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" width="100%" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label wrapping="true" text="{i18n>DocumentExpiry}" design="Bold" labelFor="dpVSODocuExpiry" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ATTACHMENTS/DOC_EXPIRY}" visible="{oVendorMaster>/bDisplay}" />
+            <DatePicker visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/ATTACHMENTS/DOC_EXPIRY}" id="dpVSODocuExpiry" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'DateField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" width="100%" />
+            <layoutData>
+                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="Attachments" wrapping="true" design="Bold" />
+            <upload:UploadSet />
+            <layoutData>
+                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Table class="" inset="false" items="{oFiexibleLayout>/oSelectedValues/ATTACHMENTSSET}">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>DocumentType}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>DocumentExpiry}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>DocumentDescription}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="{i18n>Attachment}" />
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="" />
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{oFiexibleLayout>DOCUMENT_TYPE}" />
+                            <Text text="{oFiexibleLayout>DOC_DESCRIPTION}" />
+                            <Text text="{oFiexibleLayout>DOC_EXPIRY}" />
+                            <Text text="" />
+                            <Button icon="sap-icon://edit" />
+                            <Button icon="sap-icon://delete" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

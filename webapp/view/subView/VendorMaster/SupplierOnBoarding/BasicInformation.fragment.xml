@@ -1,0 +1,79 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <VBox>
+            <Label text="{i18n>CompanySupplierName}" wrapping="true" design="Bold" labelFor="ipVSOCompanySupp" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/COMPANY_NAME}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/COMPANY_NAME}" id="ipVSOCompanySupp" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>LegalBusinessEntry}" wrapping="true" design="Bold" labelFor="ipVSOLegalBusiness" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/BUSINESS_ENTITY}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/BUSINESS_ENTITY}" id="ipVSOLegalBusiness" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>Natureofbusiness}" wrapping="true" design="Bold" labelFor="cbVSONatureofbusiness" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/NATURE_OF_BUSINESS_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/NATURE_OF_BUSINESS}"
+                items="{oMainModel>/BUSINESS_CODE}"
+                width="100%"
+                id="cbVSONatureofbusiness"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>PrimaryEmailID}" wrapping="true" design="Bold" labelFor="ipVSOPrimaryEmailid" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/EMAIL_ID}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/EMAIL_ID}" id="ipVSOPrimaryEmailid" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'Email' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>BusinessRegistrationNo}" wrapping="true" design="Bold" labelFor="ipVSOBusinessRegNo" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/BANKSEQID/GST_NUMBER}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/BANKSEQID/GST_NUMBER}" id="ipVSOBusinessRegNo" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>WEBSITE}" design="Bold" wrapping="true" labelFor="ipVSOWebsite" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/WEBSITE}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/WEBSITE}" id="ipVSOWebsite" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>DeliveryLeadDays}" design="Bold" wrapping="true" labelFor="ipVSODeliveryLeadDay" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/DELIVER_LEAD_DAYS}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/DELIVER_LEAD_DAYS}" id="ipVSODeliveryLeadDay" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>VATRegistrationNo}" design="Bold" wrapping="true" labelFor="ipVSoVATRegNo" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/BANKSEQID/VAT}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/BANKSEQID/VAT}" id="ipVSoVATRegNo" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

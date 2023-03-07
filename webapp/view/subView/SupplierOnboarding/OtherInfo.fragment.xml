@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <FlexBox id="flxBoxOtherInfo" class="sapUiMediumMarginTop" visible="{genericTileModel>/sStep8}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm width="{oFiexibleLayout>/Width}" title="{i18n>OtherInformation}" layout="ResponsiveGridLayout" labelSpanXL="8" labelSpanL="8" labelSpanM="12" columnsXL="1" columnsL="2" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Label text="{i18n>VendorAccountGroup}" design="Bold" labelFor="cbSOVendorAcc" wrapping="true" />
+                    <ComboBox selectedKey="{oSOModel>/VENDOR_ACCOUNT_GROUP}" items="{oMainModel>/businessCode}" width="100%" id="cbSOVendorAcc" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>PurchaseOrderFrequency}" design="Bold" labelFor="cbSOPurchaseOrderCurr" wrapping="true" />
+                    <ComboBox selectedKey="{oSOModel>/PURCHASE_ORDER_CURRENCY}" items="{oMainModel>/T_CURRENCY}" width="100%" id="cbSOPurchaseOrderCurr" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>CURRENCY_CODE}" text="{oMainModel>CURRENCY_NAME}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>GroupforCalculationSchema}" design="Bold" labelFor="cbSOGroupofCalSchema" wrapping="true" />
+                    <ComboBox selectedKey="{oSOModel>/GCS}" items="{oMainModel>/GCS_TYPE}" width="100%" id="cbSOGroupofCalSchema" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+
+                <VBox>
+                    <Label text="{i18n>TimeZone}" design="Bold" labelFor="cbSOTimeZone" wrapping="true" />
+                    <ComboBox selectedKey="{oSOModel>/TZ_EWM_RELATED}" items="{oMainModel>/businessCode}" width="100%" id="cbSOTimeZone" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Button  type="Emphasized" text="{i18n>btnProceedtoStatutoryDocuments}" press="onfnnextpress9" width="100%" class="button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="false" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>

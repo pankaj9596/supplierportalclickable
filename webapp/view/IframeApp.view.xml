@@ -1,0 +1,34 @@
+<mvc:View xmlns:l="sap.ui.layout" controllerName="com.spm.suppilerportal.controller.IframeApp"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true"
+	xmlns="sap.m">
+	<Page id="iFrameAppPage" enableScrolling="false" showHeader="true" title="{i18n>title}">
+		<customHeader class="barColor">
+			<Bar>
+				<contentLeft>
+					<Button type="Emphasized" icon="sap-icon://home" press="onPressHomePage" />
+				</contentLeft>
+				<contentMiddle>
+				<Title visible="{= ${device>/system/phone} ? false : true}" width="100rem" text="{CoreRoutingModel>/selectedApplication/appName}"/>
+				</contentMiddle>
+				<contentRight>											
+				
+				<Avatar
+							src="{oUserDataModel>/userInfo/profileImageURL}"
+							displaySize="{= ${device>/system/phone} ? 'XS' : 'S'}"
+							showBorder="true"							
+							badgeTooltip="Virat Prince"
+							displayShape="Circle" 
+							press="handleUserPress"
+							fallbackIcon="sap-icon://account"/>	
+							<Link text="Logout" press="onLogoutPress"/>
+							<Link text="Proxy" press="onProxPress"/>
+				
+				</contentRight>		
+			</Bar>
+		</customHeader>
+		<content>
+			<!-- <html:iframe id="appIframe" src="" target="_top" height="100%" width="100%"></html:iframe> -->
+		</content>
+	</Page>
+</mvc:View>

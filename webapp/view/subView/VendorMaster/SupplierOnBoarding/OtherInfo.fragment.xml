@@ -1,0 +1,71 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <VBox>
+            <Label wrapping="true" text="{i18n>VendorAccountGroup}" design="Bold" labelFor="cbVSOVendorAcc" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/VENDOR_ACCOUNT_GROUP}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/VENDOR_ACCOUNT_GROUP}"
+                items="{oMainModel>/businessCode}"
+                width="100%"
+                id="cbVSOVendorAcc"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label wrapping="true" text="{i18n>PurchaseOrderFrequency}" design="Bold" labelFor="cbVSOPurchaseOrderCurr" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/PURCHASE_ORDER_CURRENCY}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/PURCHASE_ORDER_CURRENCY}"
+                items="{oMainModel>/T_CURRENCY}"
+                width="100%"
+                id="cbVSOPurchaseOrderCurr"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>CURRENCY_CODE}" text="{oMainModel>CURRENCY_NAME}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label wrapping="true" text="{i18n>GroupforCalculationSchema}" design="Bold" labelFor="cbVSOGroupofCalSchema" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/GCS_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox visible="{oVendorMaster>/bEdit}" selectedKey="{oFiexibleLayout>/oSelectedValues/GCS}" items="{oMainModel>/GCS_TYPE}" width="100%" id="cbVSOGroupofCalSchema" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true">
+                <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label wrapping="true" text="{i18n>TimeZone}" design="Bold" labelFor="cbVSOTimeZone" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/TZ_EWM_RELATED}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/TZ_EWM_RELATED}"
+                items="{oMainModel>/businessCode}"
+                width="100%"
+                id="cbVSOTimeZone"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

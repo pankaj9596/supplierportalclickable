@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<QuickView placement="Bottom"
+		id="quickView"		
+		navigate="getLogout">
+		<QuickViewPage
+			pageId="userPageId"
+			header="User Info"
+			title="{oUserDataModel>/userInfo/firstName} {oUserDataModel>/userInfo/lastName}"						
+			description="{= ${oUserDataModel>/userInfo/UserType} === 'Partner' ? 'Vendor' : 'Retailer' }"
+			titleUrl="https://iprice.ph/">	
+			<avatar>
+			<!-- https://storage.googleapis.com/spmlogoimages/Om-modified.png -->
+				<Avatar
+					src="{oUserDataModel>/userInfo/profileImageURL}"
+					displayShape="Circle"
+				/>
+			</avatar>		
+			<QuickViewGroup
+				heading="Contact Details">
+				<QuickViewGroupElement
+					label="Mobile"
+					value="{oUserDataModel>/userInfo/contactNumber}"		
+					type="mobile"			
+					/>
+				<QuickViewGroupElement
+					label="Email"
+					value="{oUserDataModel>/userInfo/emailId}"
+					emailSubject="Subject"
+					type="email"					
+					/>	
+			</QuickViewGroup>
+			<QuickViewGroup
+				heading="Company">
+				<QuickViewGroupElement
+					label="Name"
+					value="{oUserDataModel>/userInfo/comapanyName}"
+					url="http://sap.com"
+					type="link"					
+					/>
+				<QuickViewGroupElement
+					label="Address"
+					value="{oUserDataModel>/userInfo/companyAddress}"	
+					type="text"				
+					/>	
+			</QuickViewGroup>
+			<!-- <QuickViewGroup
+				heading="">
+				<QuickViewGroupElement
+					label=""
+					value="Logout"					
+					type="link"	
+					pageLinkId="contactPage"									
+					/>				
+			</QuickViewGroup> -->
+		</QuickViewPage>		
+	</QuickView>	
+</core:FragmentDefinition>

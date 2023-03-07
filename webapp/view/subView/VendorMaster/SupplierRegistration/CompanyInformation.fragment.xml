@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <VBox>
+            <Label text="{i18n>EmailID}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/EMAIL_ID}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+              <Label text="{i18n>Company}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/COMPANY_NAME}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>Natureofbusiness}" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/NATURE_OF_BUSINESS_TEXT}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>Department}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/DEPARTMENT_TEXT}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+
+        <VBox>
+            <Label text="{i18n>Subdepartment}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/SUB_DEPARTMENT_TEXT}" />
+
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>WEBSITE}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/WEBSITE}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

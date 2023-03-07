@@ -1,0 +1,237 @@
+{
+  "_version": "1.42.0",
+  "sap.app": {
+    "id": "com.spm.suppilerportal",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.7.5",
+      "toolsId": "8e07338e-6238-4753-b082-581d62930035"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "myModel_alias": {
+        "uri": "model/config.json",
+        "type": "JSON"
+    }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "fullWidth": true
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.102.1",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "contentDensities": {
+      "compact": false,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.spm.suppilerportal.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "oConfigModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "myModel_alias"
+    }  
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.spm.suppilerportal.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteLandingView",
+          "pattern": "",
+          "target": [
+            "TargetLandingView"
+          ]
+        },
+        {
+          "name": "GenericTilesView",
+          "pattern": "GenericTilesView",
+          "target": [
+            "GenericTilesView"
+          ]
+        },
+        {
+          "name": "IframeApp",
+          "pattern": "IframeApp",
+          "target": [
+            "IframeApp"
+          ]
+        },
+        {
+          "name": "SupplierRegistration",
+          "pattern": "SupplierRegistration",
+          "target": [
+            "SupplierRegistration"
+          ]
+        },
+        {
+          "name": "NewProductIntroduction",
+          "pattern": "NewProductIntroduction",
+          "target": [
+            "NewProductIntroduction"
+          ]
+        },
+        {
+          "name": "SupplierOnboarding",
+          "pattern": "SupplierOnboarding",
+          "target": [
+            "SupplierOnboarding"
+          ]
+        },
+        {
+          "pattern": "FlexibleColumnLayout/{Type}",
+          "name": "FlexibleColumnLayout",
+          "target": [
+            "FlexibleColumnLayout"
+          ]
+        },
+        {
+          "pattern": "TaskMaster",
+          "name": "TaskMaster",
+          "target": [
+            "TaskMaster",
+            "TaskDetail"
+          ],
+          "layout": "TwoColumnsMidExpanded",
+          "controlId": "fcl"
+        },
+        {
+          "pattern": "TaskDetail/{TaskType}",
+          "name": "TaskDetail",
+          "target": [
+            "TaskMaster",
+            "TaskDetail"
+          ],
+          "layout": "TwoColumnsMidExpanded"
+        }
+      ],
+      "targets": {
+        "TargetLandingView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "LandingView",
+          "viewName": "LandingView"
+        },
+        "GenericTilesView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "GenericTilesView",
+          "viewName": "GenericTilesView"
+        },
+        "IframeApp": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "IframeApp",
+          "viewName": "IframeApp"
+        }, 
+        "NewProductIntroduction": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "NewProductIntroduction",
+          "viewName": "NewProductIntroduction",
+          "title": "New Product Introduction"
+        },
+        "SupplierRegistration": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SupplierRegistration",
+          "viewName": "SupplierRegistration",
+          "title": "Supplier Registration"
+        },
+        "SupplierOnboarding": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SupplierOnboarding",
+          "viewName": "SupplierOnboarding",
+          "title": "New Supplier On Boarding Form"
+        },
+        "FlexibleColumnLayout": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "flexibleColumnLayout",
+          "viewName": "FlexibleColumnLayout"
+        },
+        "TaskMaster": {
+          "viewName": "TaskMaster",
+          "controlId": "Master",
+          "controlAggregation": "beginColumnPages"
+        },
+        "TaskDetail": {
+          "viewName": "TaskDetail",
+          "controlId": "Detail",
+          "controlAggregation": "midColumnPages"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.spm.suppilerportal.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

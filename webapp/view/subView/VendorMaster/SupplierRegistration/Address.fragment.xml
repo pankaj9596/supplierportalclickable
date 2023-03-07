@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <VBox>
+            <Label text="{i18n>AddressType}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/ADDRESS_TYPE_TEXT}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>AddressLine1}" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/ADDRESS_LINE_1}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>AddressLine2}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/ADDRESS_LINE_2}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+
+        <VBox>
+            <Label text="{i18n>AddressLine3}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/ADDRESS_LINE_3}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>CountryCode}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/COUNTRY_CODE_TEXT}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>State}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/STATE_TEXT}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>City}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/CITY}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>PostalCode}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDRESS/POSTAL_CODE}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

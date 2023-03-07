@@ -1,0 +1,52 @@
+<mvc:View xmlns:l="sap.ui.layout" controllerName="com.spm.suppilerportal.controller.GenericTilesView" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<Page id="page" class="BgImage" enableScrolling="true" showHeader="false" title="{i18n>title}">
+		<content>
+			<Bar class="sapUiSmallMarginTop sapUiContentPadding barHeight">
+				<contentLeft/>
+				<contentMiddle>
+					<SearchField width="{= ${device>/system/phone} ? '' : '40rem'}"/>
+				</contentMiddle>
+				<contentRight>											
+				
+				<Avatar
+							src="{oUserDataModel>/userInfo/profileImageURL}"
+							displaySize="{= ${device>/system/phone} ? 'XS' : 'S'}"
+							showBorder="true"							
+							badgeTooltip="Virat Prince"
+							displayShape="Circle" 
+							press="handleUserPress"
+							fallbackIcon="sap-icon://account"/>	
+
+							<!-- <Text textAlign="Center" text="Virat Prince" class="sapUiSmallMarginTop"/>													 -->
+							<!-- <VBox class="sapUiSmallMarginTop sapUiNoContentPadding"> -->
+							<Link text="Logout" press="onLogoutPress"/>
+							<Link text="Proxy" press="onProxPress"/>							
+				</contentRight>					
+			</Bar>
+			<l:VerticalLayout width="100%" class="gridWrapper">
+				<Carousel id="carouselSample" height="100%" pages="{ path: 'ApplicationModel>/Carousel' }" showPageIndicator="false"
+					class="sapUiNoContentPadding">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="1"/>
+					</customLayout>
+					<l:Grid position="Center" width="{= ${device>/system/phone} ? '' : '100%'}" content="{path : 'ApplicationModel>ApplicationPerLayout/' , sorter :[{path:'appName',group: 'true'}]}"
+						class="sapUiSmallMarginTopBottom">
+						<VBox>
+							<HBox justifyContent="Center">
+								<GenericTile id="tileApplicationHomePage"  backgroundImage="{ApplicationModel>backgroundImage}" class="sapUiTinyMarginTop"
+									tooltip="{ApplicationModel>appNameTooltip}"  press="onImageClick"/>
+							</HBox>
+							<HBox justifyContent="Center">
+								<Text id="txtBottomTile" textAlign="Center" width="{= ${device>/system/phone} ? '80px' : '128px'}" wrapping="false" text="{ApplicationModel>appName}" tooltip="{ApplicationModel>AppNameTooltip}"/>
+							</HBox>
+							<layoutData>
+                                <l:GridData span="XL2 L2 M3 S3" linebreak="false" />
+                            </layoutData>
+						</VBox>
+					</l:Grid>
+				</Carousel>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,22 @@
+{
+    "domain":"https://sp-teh7la6xqa-as.a.run.app",
+    "Authorization":"",
+    "refreshToken":"",
+    "_getRoles":"/sp/role/get-roles",
+    "_getBusinessEntity":"/sp/business-entity/get-business-entities",
+    "_getLookUp":"/sp/value-help/get-value-help",
+    "authentication":"/sp/login/authenticate",
+    "logout":"/sp/login/logout",
+    "allDevicelogout":"/sp/login/logout-all-devices",
+    "getUserInfo":"/sp/login/get-user-permissions",
+    "refreshTokenUrl":"/sp/login/refresh",
+    "expiry":"",
+    "name": [
+        "T_FORM_BUILDER-STATUS",
+        "T_BPM_CONFIG-TASKTYPE",
+        "T_BPM_CONFIG-APPROVAL_TYPE",
+        "T_BPM_CONFIG-APPRV_NOTIFYUSER",
+        "T_BPM_CONFIG-REJECT_NOTIFYUSER",
+        "T_BPM_CONDITIONS-OPERATOR"
+    ]
+}

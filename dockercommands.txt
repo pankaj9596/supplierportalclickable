@@ -1,0 +1,16 @@
+docker build -t supplierportal:20230226-4 .
+docker run -p 8080:8080 -d supplierportal:20230226-4
+
+docker images
+docker logs <runid>
+
+
+-----------login to gcp
+
+gcloud auth login
+gcloud config set project spmproject-371903
+gcloud config set compute/region asia-southeast1
+docker tag supplierportal:20230226-4 gcr.io/spmproject-371903/supplierportal:20230226-4
+gcloud auth configure-docker
+docker push gcr.io/spmproject-371903/supplierportal:20230226-4
+

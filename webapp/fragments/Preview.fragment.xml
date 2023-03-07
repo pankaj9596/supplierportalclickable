@@ -1,0 +1,611 @@
+<core:FragmentDefinition xmlns:upload="sap.m.upload" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+    <Dialog class="dilgtilte" title="Preview" contentWidth="100%" horizontalScrolling="false" draggable="false" busy="{objectView>/busy}" busyIndicatorDelay="0" afterClose="onAfterCloseForm">
+        <content>
+            <Panel expandable="true" expanded="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>basicInformation}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep1')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label text="{i18n>CompanySupplierName}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/COMPANY_NAME}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>LegalBusinessEntry}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/BUSINESS_ENTITY}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>Natureofbusiness}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/NATURE_OF_BUSINESS_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>PrimaryEmailID}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/EMAIL_ID}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>BusinessRegistrationNo}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/GST_NUMBER}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>WEBSITE}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/WEBSITE}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>DeliveryLeadDays}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/DELIVER_LEAD_DAYS}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>VATRegistrationNo}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/VAT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>DepartmentProductInfo}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep2')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label text="{i18n>Department}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/DEPARTMENT_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>Subdepartment}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/SUB_DEPARTMENT_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>AreyouassociatedwithManufacturer}" design="Bold" />
+                            <RadioButtonGroup selectedIndex="{path:'oSOModel>/EXISTING_ASSOC_MF',formatter:'.formatter.onRadioButton'}" columns="2" width="100%">
+                                <RadioButton text="{i18n>Yes}" />
+                                <RadioButton text="{i18n>No}" />
+                            </RadioButtonGroup>
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>AddressDetails}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep3')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label text="{i18n>AddressType}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/ADDRESS_TYPE_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>AddressLine1}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/ADDRESS_LINE_1}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>AddressLine2}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/ADDRESS_LINE_2}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>AddressLine3}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/ADDRESS_LINE_3}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>CountryCode}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/COUNTRY_CODE}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>State}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/STATE}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>City}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/CITY}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>PostalCode}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/ADDSEQID/POSTAL_CODE}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>ContactList}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep4')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label text="{i18n>ContactType}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/CONTSEQID/OBJECT_TYPE_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>PrimaryContactName}" wrapping="true" design="Bold" />
+                            <Text text="{oSOModel>/CONTSEQID/FIRST_NAME}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>Designation}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/CONTSEQID/POSITION}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>Email}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/CONTSEQID/EMAIL_ADDRESS}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>Phone}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/CONTSEQID/PHONE_NUMBER}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>Fax}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/CONTSEQID/FAX_NUMBER}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>Extension}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/CONTSEQID/EXT_NUMBER}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Table inset="false" items="{oSOModel>/CONTSEQLIST}">
+                                <columns>
+                                    <Column width="{= ${device>/system/phone} ? '' : '12em'}">
+                                        <Text text="{i18n>ContactType}" />
+                                    </Column>
+                                    <Column width="{= ${device>/system/phone} ? '' : '15em'}" minScreenWidth="Tablet" demandPopin="true">
+                                        <Text text="{i18n>PrimaryContactName}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                        <Text text="{i18n>Designation}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                        <Text text="{i18n>Email}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                        <Text text="{i18n>Phone}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                        <Text text="{i18n>Fax}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                        <Text text="{i18n>Extension}" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem vAlign="Middle">
+                                        <cells>
+                                            <Text text="{oSOModel>OBJECT_TYPE}" />
+                                            <Text text="{oSOModel>FIRST_NAME}" />
+                                            <Text text="{oSOModel>POSITION}" />
+                                            <Text text="{oSOModel>EMAIL_ADDRESS}" />
+                                            <Text text="{oSOModel>PHONE_NUMBER}" />
+                                            <Text text="{oSOModel>FAX_NUMBER}" />
+                                            <Text text="{oSOModel>EXT_NUMBER}" />
+                                            <Button icon="sap-icon://edit" />
+                                            <Button icon="sap-icon://delete" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>AccountingInformation}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep5')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label text="{i18n>ReturntoVendor}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/RTV_ALLOWED}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>ReturntoVendorRemarks}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/RTV_REMARKS}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>CreditPeriod}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/CREDIT_PERIOD_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>RefundableDepositFee}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/BANKSEQID/REF_DEPOSIT_FEE}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>ShippingConditions}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/SHIP_CONDITION_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>ReconcialitionAccounts}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/BANKSEQID/RECON_ACCOUNT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>CashManagementGroup}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/CASH_MGMT_GRP_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="{i18n>SortKey}" design="Bold" wrapping="true" />
+                            <Text text="{oSOModel>/SORT_KEY}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>PaymentInformation}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep6')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>PaymentMethods}" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/PAYMENT_TYPE_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>KeyPaymentGrouping}" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/KEY_FOR_PAYMENT_GROUPING}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>ChequeDeliveryMethod}" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/CHEQUE_DELIVERY_METHOD}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>WithholdingTaxAccounting}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep7')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>WHTTaxType}" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/TAX_TYPE_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>WHTPercentage}" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/WHT_PERCENT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>WHTTaxCode}" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/TAX_NUMBER}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>ExcemptionPeriodTo}" design="Bold" />
+                            <Text text="{oSOModel>/BANKSEQID/EXEMPTION_PERIOD}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>OtherInformation}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep8')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>VendorAccountGroup}" design="Bold" />
+                            <Text text="{oSOModel>/VENDOR_ACCOUNT_GROUP}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>PurchaseOrderFrequency}" design="Bold" />
+                            <Text text="{oSOModel>/PURCHASE_ORDER_CURRENCY}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>GroupforCalculationSchema}" design="Bold" />
+                            <Text text="{oSOModel>/GCS_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>TimeZone}" design="Bold" />
+                            <Text text="{oSOModel>/TZ_EWM_RELATED}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>StatutoryDocuments}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep9')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>DocumentType}" design="Bold" />
+                            <Text text="{oSOModel>/ATTACHMENTS/DOCUMENT_TYPE_TEXT}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>DocumentDescription}" design="Bold" />
+                            <Text text="{oSOModel>/ATTACHMENTS/DOC_DESCRIPTION}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="false" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>DocumentExpiry}" design="Bold" />
+                            <Text text="{oSOModel>/ATTACHMENTS/DOC_EXPIRY}" />
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M8 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label text="Attachments" wrapping="true" design="Bold" />
+                            <upload:UploadSet />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Table class="sapUiLargeMarginBegin" inset="false" items="{oSOModel>/ATTACHMENTSSET}">
+                                <columns>
+                                    <Column>
+                                        <Text text="{i18n>DocumentType}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true">
+                                        <Text text="{i18n>DocumentExpiry}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true">
+                                        <Text text="{i18n>DocumentDescription}" />
+                                    </Column>
+                                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                                        <Text text="{i18n>Attachment}" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="" />
+                                    </Column>
+                                    <Column hAlign="End">
+                                        <Text text="" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem vAlign="Middle">
+                                        <cells>
+                                            <Text text="{oSOModel>DOCUMENT_TYPE}" />
+                                            <Text text="{oSOModel>DOC_DESCRIPTION}" />
+                                            <Text text="{oSOModel>DOC_EXPIRY}" />
+                                            <Text text="" />
+                                            <Button icon="sap-icon://edit" />
+                                            <Button icon="sap-icon://delete" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="{i18n>ReviewLog}" wrapping="true" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://edit" press="onEditPreview($event,'/sStep10')" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>VendorRemarks}" design="Bold" />
+                            <Text text="{oSOModel>/REMARKS}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>CategoryExecutiveRemarks}" design="Bold" />
+                            <Text text="{oSOModel>/CATERGORY_EXECUTIVE_REMARKS}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>FinanceManagerRemarks}" design="Bold" />
+                            <Text text="{oSOModel>/FINANCE_REMARKS}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>HODRemarks}" design="Bold" />
+                            <Text text="{oSOModel>/HOD_REMARKS}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                        <VBox>
+                            <Label wrapping="true" text="{i18n>AdditionalInfo}" design="Bold" />
+                            <Text text="{oSOModel>/ADDITIONAL_INFO}" />
+                            <layoutData>
+                                <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                            </layoutData>
+                        </VBox>
+                    </layout:Grid>
+                </content>
+            </Panel>
+        </content>
+        <buttons>
+            <Button class="button1" type="Emphasized" text="Submit" press="onfnpresssubmit" />
+            <Button text="Cancel" press="onCancelForm" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

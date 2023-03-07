@@ -1,0 +1,10 @@
+<mvc:View xmlns="sap.f" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" controllerName="com.spm.suppilerportal.controller.FlexibleColumnLayout" height="100%">
+    <FlexibleColumnLayout stateChange="onStateChange" id="flexibleColumnLayout" backgroundDesign="Solid" layout="{oFiexibleLayout>/layout}">
+        <beginColumnPages>
+            <mvc:XMLView id="Master" viewName="com.spm.suppilerportal.view.TaskMaster" />
+        </beginColumnPages>
+        <midColumnPages>
+            <mvc:XMLView id="Detail" viewName="com.spm.suppilerportal.view.TaskDetail" />
+        </midColumnPages>
+    </FlexibleColumnLayout>
+</mvc:View>

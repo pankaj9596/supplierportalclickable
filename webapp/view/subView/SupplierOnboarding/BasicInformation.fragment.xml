@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <FlexBox id="flxBoxBasicInformation" class="sapUiMediumMarginTop" visible="{genericTileModel>/sStep1}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm width="{oFiexibleLayout>/Width}" title="{i18n>basicInformation}" layout="ResponsiveGridLayout" labelSpanXL="8" labelSpanL="8" labelSpanM="12" columnsXL="1" columnsL="2" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Label text="{i18n>CompanySupplierName}" wrapping="true" design="Bold" labelFor="ipSOCompanySupp" />
+                    <Input value="{oSOModel>/COMPANY_NAME}" id="ipSOCompanySupp" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>LegalBusinessEntry}" wrapping="true" design="Bold" labelFor="ipSOLegalBusiness" />
+                    <Input value="{oSOModel>/BUSINESS_ENTITY}" id="ipSOLegalBusiness" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>Natureofbusiness}" design="Bold" wrapping="true" labelFor="cbSONatureofbusiness" />
+                    <ComboBox selectedKey="{oSOModel>/NATURE_OF_BUSINESS}" items="{oMainModel>/BUSINESS_CODE}" width="100%" id="cbSONatureofbusiness" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>PrimaryEmailID}" design="Bold" wrapping="true" labelFor="ipSOPrimaryEmailid" />
+                    <Input value="{oSOModel>/EMAIL_ID}" id="ipSOPrimaryEmailid" fieldGroupIds="Email" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>BusinessRegistrationNo}" design="Bold" wrapping="true" labelFor="ipSOBusinessRegNo" />
+                    <Input value="{oSOModel>/BANKSEQID/GST_NUMBER}" id="ipSOBusinessRegNo" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>Website}" design="Bold" labelFor="ipSOWebsite" wrapping="true" />
+                    <Input value="{oSOModel>/WEBSITE}" id="ipSOWebsite" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>DeliveryLeadDays}" design="Bold" labelFor="ipSODeliveryLeadDay" wrapping="true" />
+                    <Input visible="{oVendorMaster>/bEdit}" value="{oSOModel>/DELIVER_LEAD_DAYS}" id="ipSODeliveryLeadDay" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>VATRegistrationNo}" design="Bold" labelFor="ipSoVATRegNo" wrapping="true" />
+                    <Input value="{oSOModel>/BANKSEQID/VAT}" id="ipSoVATRegNo" fieldGroupIds="InputField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Button  type="Emphasized"  text="{i18n>btnProceedtodepartment}" press="onfnnextpress2" width="100%" class="button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>

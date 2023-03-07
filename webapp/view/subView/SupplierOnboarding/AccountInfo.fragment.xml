@@ -1,0 +1,84 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <FlexBox id="flxBoxAccountInfo" class="sapUiMediumMarginTop" visible="{genericTileModel>/sStep5}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm width="{oFiexibleLayout>/Width}" title="{i18n>AccountingInformation}" layout="ResponsiveGridLayout" labelSpanXL="8" labelSpanL="8" labelSpanM="12" columnsXL="1" columnsL="2" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Label text="{i18n>ReturntoVendor}" wrapping="true" design="Bold" labelFor="cbSOReturntoVendor" />
+                    <ComboBox selectedKey="{oSOModel>/RTV_ALLOWED}" items="{oMainModel>/T_OPTION_SELECTION}" width="100%" id="cbSOReturntoVendor" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>ReturntoVendorRemarks}" wrapping="true" design="Bold" labelFor="taSOReturnVendorRemarks" />
+                    <TextArea value="{oSOModel>/RTV_REMARKS}" id="taSOReturnVendorRemarks" fieldGroupIds="InputField" required="false" editable="true" width="100%" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>CreditPeriod}" design="Bold" wrapping="true" labelFor="cbSOCreditPeriod" />
+                    <ComboBox selectedKey="{oSOModel>/CREDIT_PERIOD}" items="{oMainModel>/CREDIT_PERIOD_TYPE}" width="100%" id="cbSOCreditPeriod" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>RefundableDepositFee}" design="Bold" wrapping="true" labelFor="ipSORefundableFee" />
+                    <Input value="{oSOModel>/BANKSEQID/REF_DEPOSIT_FEE}" id="ipSORefundableFee" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>ShippingConditions}" design="Bold" wrapping="true" labelFor="cbSOShippingCond" />
+                    <ComboBox selectedKey="{oSOModel>/SHIP_CONDITION}" items="{oMainModel>/SHIP_CONDITION_TYPE}" width="100%" id="cbSOShippingCond" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>ReconcialitionAccounts}" design="Bold" wrapping="true" labelFor="cbSOReconcilaAcc" />
+                    <ComboBox selectedKey="{oSOModel>/BANKSEQID/RECON_ACCOUNT}" items="{oMainModel>/RECONCACCOUNTS_TYPE}" width="100%" id="cbSOReconcilaAcc" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>CashManagementGroup}" design="Bold" wrapping="true" labelFor="cbSOCashmanagmentgrp" />
+                    <ComboBox selectedKey="{oSOModel>/CASH_MGMT_GRP}" items="{oMainModel>/CASH_MGMT_GRP_TYPE}" width="100%" id="cbSOCashmanagmentgrp" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>SortKey}" design="Bold" wrapping="true" labelFor="cbSOSortKey" />
+                    <ComboBox selectedKey="{oSOModel>/SORT_KEY}" items="{oMainModel>/T_OPTION_SELECTION}" width="100%" id="cbSOSortKey" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:Item key="{oMainModel>CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Button type="Emphasized" text="{i18n>btnProceedtoPaymentinformation}" press="onfnnextpress6" width="100%" class="button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="false" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>

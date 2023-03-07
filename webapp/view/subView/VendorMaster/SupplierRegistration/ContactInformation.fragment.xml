@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <!--<VBox>-->
+        <!--    <Label text="{i18n>PhoneCountryCode}" wrapping="true" design="Bold" />-->
+        <!--    <Text text="{oFiexibleLayout>/oSelectedValues/PH_COUNTRY_CODE}" />-->
+        <!--    <layoutData>-->
+        <!--        <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />-->
+        <!--    </layoutData>-->
+        <!--</VBox>-->
+        <VBox>
+            <Label text="{i18n>PhoneNo}" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/PH_COUNTRY_CODE} {oFiexibleLayout>/oSelectedValues/PHONE_NUMBER}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <!--<VBox>-->
+        <!--    <Label text="{i18n>AltPhoneCountryCode}" wrapping="true" design="Bold" />-->
+        <!--    <Text text="{oFiexibleLayout>/oSelectedValues/ALT_PH_COUNTRY_CODE}" />-->
+        <!--    <layoutData>-->
+        <!--        <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />-->
+        <!--    </layoutData>-->
+        <!--</VBox>-->
+
+        <VBox>
+            <Label text="{i18n>AltPhoneNo}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ALT_PH_COUNTRY_CODE} {oFiexibleLayout>/oSelectedValues/ALTERNATE_PHN_NUMBER}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>PrimaryContactName}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/PRIMARY_CONTACT_NAME}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>Remarks}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/REMARKS}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>AdditionalInfo}" wrapping="true" design="Bold" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/ADDITIONAL_INFO}" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

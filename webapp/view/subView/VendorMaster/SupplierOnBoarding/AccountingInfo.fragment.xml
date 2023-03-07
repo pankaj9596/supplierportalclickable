@@ -1,0 +1,125 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <VBox>
+            <Label text="{i18n>ReturntoVendor}" design="Bold" labelFor="cbVSOReturntoVendor" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/RTV_ALLOWED_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                selectedKey="{oFiexibleLayout>/oSelectedValues/RTV_ALLOWED}"
+                items="{oMainModel>/T_OPTION_SELECTION}"
+                width="100%"
+                id="cbSOReturntoVendor"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+                visible="{oVendorMaster>/bEdit}"
+            >
+                <core:Item key="{oMainModel>CODE}" text="{oMainModel>LABEL_CODE}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>ReturntoVendorRemarks}" design="Bold" labelFor="taVSOReturnVendorRemarks" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/RTV_REMARKS}" visible="{oVendorMaster>/bDisplay}" />
+            <TextArea visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/RTV_REMARKS}" id="taVSOReturnVendorRemarks" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" width="100%" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>CreditPeriod}" design="Bold" labelFor="cbVSOCreditPeriod" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/CREDIT_PERIOD_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/CREDIT_PERIOD}"
+                items="{oMainModel>/CREDIT_PERIOD_TYPE}"
+                width="100%"
+                id="cbVSOCreditPeriod"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>RefundableDepositFee}" design="Bold" labelFor="ipVSORefundableFee" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/BANKSEQID/REF_DEPOSIT_FEE}" visible="{oVendorMaster>/bDisplay}" />
+            <Input visible="{oVendorMaster>/bEdit}" value="{oFiexibleLayout>/oSelectedValues/BANKSEQID/REF_DEPOSIT_FEE}" id="ipVSORefundableFee" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'InputField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true" />
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>ShippingConditions}" design="Bold" labelFor="cbVSOShippingCond" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/SHIP_CONDITION_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/SHIP_CONDITION}"
+                items="{oMainModel>/SHIP_CONDITION_TYPE}"
+                width="100%"
+                id="cbVSOShippingCond"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>ReconcialitionAccounts}" design="Bold" labelFor="cbVSOReconcilaAcc" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/BANKSEQID/RECON_ACCOUNT_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/BANKSEQID/RECON_ACCOUNT}"
+                items="{oMainModel>/RECONCACCOUNTS_TYPE}"
+                width="100%"
+                id="cbVSOReconcilaAcc"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="false"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>CashManagementGroup}" design="Bold" labelFor="cbVSOCashmanagmentgrp" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/CASH_MGMT_GRP_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/CASH_MGMT_GRP}"
+                items="{oMainModel>/CASH_MGMT_GRP_TYPE}"
+                width="100%"
+                id="cbVSOCashmanagmentgrp"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>SortKey}" design="Bold" labelFor="cbVSOSortKey" wrapping="true" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/SORT_KEY}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox visible="{oVendorMaster>/bEdit}" selectedKey="{oFiexibleLayout>/oSelectedValues/SORT_KEY}" items="{oMainModel>/department}" width="100%" id="cbVSOSortKey" fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}" required="{oVendorMaster>/bEdit}" editable="true">
+                <core:Item key="{oMainModel>DEPT_CODE}" text="{oMainModel>DEPT_DESC}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

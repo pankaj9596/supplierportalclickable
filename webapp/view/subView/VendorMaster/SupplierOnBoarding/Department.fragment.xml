@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <layout:Grid hSpacing="1" defaultSpan="XL12 L12 M12 S12">
+        <VBox>
+            <Label text="{i18n>Department}" wrapping="true" design="Bold" labelFor="cbVSoDepartMent" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/DEPARTMENT_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/DEPARTMENT}"
+                items="{oMainModel>/T_MCH_DPARTMENT}"
+                width="100%"
+                id="cbVSoDepartMent"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="true" />
+            </layoutData>
+        </VBox>
+        <VBox>
+            <Label text="{i18n>Subdepartment}" wrapping="true" design="Bold" labelFor="cbVSoSubDepartMent" />
+            <Text text="{oFiexibleLayout>/oSelectedValues/SUB_DEPARTMENT_TEXT}" visible="{oVendorMaster>/bDisplay}" />
+            <ComboBox
+                visible="{oVendorMaster>/bEdit}"
+                selectedKey="{oFiexibleLayout>/oSelectedValues/SUB_DEPARTMENT}"
+                items="{oMainModel>/T_MCH_CLASS}"
+                width="100%"
+                id="cbVSoSubDepartMent"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'ComboboxField' : ' '}"
+                required="{oVendorMaster>/bEdit}"
+                editable="true"
+            >
+                <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+            </ComboBox>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+        <VBox visible="{=${oFiexibleLayout>/Type} === '2' ? true : false}">
+            <Label wrapping="true" text="{i18n>AreyouassociatedwithManufacturer}" required="{oVendorMaster>/bEdit}" design="Bold" labelFor="rbVSoAssociated" />
+            <RadioButtonGroup
+                visible="{=${oFiexibleLayout>/Type} === '2' ? true : false}"
+                selectedIndex="{path:'oFiexibleLayout>/oSelectedValues/EXISTING_ASSOC_MF',formatter:'.formatter.onRadioButton'}"
+                columns="2"
+                width="100%"
+                id="rbVSoAssociated"
+                fieldGroupIds="{=${oVendorMaster>/bEdit} ? 'RadioButtonGroup' : ' '}"
+                editable="{oVendorMaster>/bEdit}"
+            >
+                <RadioButton text="{i18n>Yes}" />
+                <RadioButton text="{i18n>No}" />
+            </RadioButtonGroup>
+            <layoutData>
+                <layout:GridData span="{oFiexibleLayout>/Span}" linebreak="false" />
+            </layoutData>
+        </VBox>
+    </layout:Grid>
+</core:FragmentDefinition>

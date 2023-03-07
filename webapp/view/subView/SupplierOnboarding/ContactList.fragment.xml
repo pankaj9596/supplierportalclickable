@@ -1,0 +1,158 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <FlexBox id="flxBoxContactList" class="sapUiMediumMarginTop" visible="{genericTileModel>/sStep4}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm width="{oFiexibleLayout>/Width}" title="{i18n>ContactList}" layout="ResponsiveGridLayout" labelSpanXL="8" labelSpanL="8" labelSpanM="12" columnsXL="1" columnsL="2" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Label text="{i18n>ContactType}" design="Bold" labelFor="cbSoContactType" wrapping="true" />
+                    <ComboBox selectedKey="{oSOModel>/CONTSEQID/OBJECT_TYPE}" items="{oMainModel>/CONTACT_TYPE}" width="100%" id="cbSoContactType" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>PrimaryContactName}" design="Bold" labelFor="ipSoPrimaryContactName" wrapping="true" />
+                    <Input value="{oSOModel>/CONTSEQID/FIRST_NAME}" id="ipSoPrimaryContactName" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>Designation}" design="Bold" labelFor="ipSoDesignation" wrapping="true" />
+                    <Input value="{oSOModel>/CONTSEQID/POSITION}" id="ipSoDesignation" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+
+                <VBox>
+                    <Label text="{i18n>Email}" design="Bold" labelFor="ipSoEmail" wrapping="true" />
+                    <Input value="{oSOModel>/CONTSEQID/EMAIL_ADDRESS}" id="ipSoEmail" fieldGroupIds="Email" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>Phone}" design="Bold" labelFor="ipSoPhone" wrapping="true" />
+                    <Input value="{oSOModel>/CONTSEQID/PHONE_NUMBER}" id="ipSoPhone" fieldGroupIds="Number" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>Fax}" design="Bold" labelFor="ipSoFax" wrapping="true" />
+                    <Input value="{oSOModel>/CONTSEQID/FAX_NUMBER}" id="ipSoFax" fieldGroupIds="InputField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+
+                <VBox>
+                    <Label text="{i18n>Extension}" design="Bold" labelFor="ipSoExtension" wrapping="true" />
+                    <Input value="{oSOModel>/CONTSEQID/EXT_NUMBER}" id="ipSoExtension" fieldGroupIds="InputField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+
+                <VBox>
+                    <Button type="Emphasized" text="{i18n>btnAddContacts}" press="onPressAddContact" width="100%" class="button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Button  type="Emphasized" text="{i18n>btnProceedtoAccountingInformation}" press="onfnnextpress5" width="100%"  class="sapUiTinyMarginTopBottom button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+    <FlexBox visible="{genericTileModel>/sStep4}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="12" labelSpanL="12" labelSpanM="12" columnsXL="1" columnsL="1" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Table id="idContactsTable" inset="false" mode="None" items="{oSOModel>/CONTSEQLIST}">
+                        <columns>
+                            <Column width="{= ${device>/system/phone} ? '' : '12em'}">
+                                <Text text="{i18n>ContactType}" />
+                            </Column>
+                            <Column width="{= ${device>/system/phone} ? '' : '15em'}" minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="{i18n>PrimaryContactName}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                <Text text="{i18n>Designation}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                <Text text="{i18n>Email}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                <Text text="{i18n>Phone}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                <Text text="{i18n>Fax}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="{= ${device>/system/phone} ? 'Begin' : 'Center'}">
+                                <Text text="{i18n>Extension}" />
+                            </Column>
+                            <!-- <Column hAlign="End">
+                                <Text text="" />
+                            </Column> -->
+                            <Column hAlign="End">
+                                <Text text="" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <VBox>
+                                        <ComboBox selectedKey="{oSOModel>OBJECT_TYPE}" items="{oMainModel>/businessCode}" width="100%" fieldGroupIds="ComboboxField" required="true" visible="{oSOModel>INPUT}" editable="true">
+                                            <core:Item key="{oMainModel>BUS_CODE}" text="{oMainModel>CODE_DESC}" />
+                                        </ComboBox>
+                                        <Text text="{oSOModel>OBJECT_TYPE}" visible="{oSOModel>TEXT}" />
+                                    </VBox>
+                                    <VBox>
+                                        <Input visible="{oSOModel>INPUT}" value="{oSOModel>FIRST_NAME}" fieldGroupIds="InputField" required="true" editable="true" />
+                                        <Text text="{oSOModel>FIRST_NAME}" visible="{oSOModel>TEXT}" />
+                                    </VBox>
+                                    <VBox>
+                                        <Input visible="{oSOModel>INPUT}" value="{oSOModel>POSITION}" fieldGroupIds="InputField" required="true" editable="true" />
+                                        <Text text="{oSOModel>POSITION}" visible="{oSOModel>TEXT}" />
+                                    </VBox>
+                                    <VBox>
+                                        <Input visible="{oSOModel>INPUT}" value="{oSOModel>EMAIL_ADDRESS}" type="Email" fieldGroupIds="Email" required="true" editable="true" />
+                                        <Text text="{oSOModel>EMAIL_ADDRESS}" visible="{oSOModel>TEXT}" />
+                                    </VBox>
+                                    <VBox>
+                                        <Input visible="{oSOModel>INPUT}" value="{oSOModel>PHONE_NUMBER}" fieldGroupIds="Number" required="true" editable="true" />
+                                        <Text text="{oSOModel>PHONE_NUMBER}" visible="{oSOModel>TEXT}" />
+                                    </VBox>
+                                    <VBox>
+                                        <Text text="{oSOModel>FAX_NUMBER}" visible="{oSOModel>TEXT}" />
+                                        <Input visible="{oSOModel>INPUT}" value="{oSOModel>FAX_NUMBER}" fieldGroupIds="InputField" required="true" editable="true" />
+                                    </VBox>
+                                    <VBox>
+                                        <Text text="{oSOModel>EXT_NUMBER}" visible="{oSOModel>TEXT}" />
+                                        <Input visible="{oSOModel>INPUT}" value="{oSOModel>EXT_NUMBER}" fieldGroupIds="InputField" required="true" editable="true" />
+                                    </VBox>
+                                    <HBox>
+                                        <Button type="Transparent" icon="sap-icon://edit" press="onEditContactTable" visible="{oSOModel>TEXT}" />
+                                        <Button type="Transparent" icon="sap-icon://save" press="onSaveContactTable" visible="{oSOModel>INPUT}" />
+                                        <Button icon="sap-icon://delete" class="sapUiTinyMarginBegin" press="onDeleteContactTable" />
+                                    </HBox>
+                                    
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>

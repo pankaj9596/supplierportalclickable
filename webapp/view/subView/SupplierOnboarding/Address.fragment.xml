@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:micro="sap.suite.ui.commons" xmlns:core="sap.ui.core">
+    <FlexBox id="flxBoxAddress" class="sapUiMediumMarginTop" visible="{genericTileModel>/sStep3}" justifyContent="Center" alignContent="Center">
+        <form:SimpleForm width="{oFiexibleLayout>/Width}" title="{i18n>Address}" layout="ResponsiveGridLayout" labelSpanXL="8" labelSpanL="8" labelSpanM="12" columnsXL="1" columnsL="2" columnsM="1" editable="true" adjustLabelSpan="true" singleContainerFullSize="false">
+            <form:content>
+                <VBox>
+                    <Label text="{i18n>AddressType}" wrapping="true" design="Bold" labelFor="bSoAddressType" />
+                    <ComboBox selectedKey="{oSOModel>/ADDSEQID/ADDRESS_TYPE}" items="{oMainModel>/ADR_TYPE}" width="100%" id="cbSoAddressType" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:Item key="{oMainModel>OBJECT_CODE}" text="{oMainModel>LABEL_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>AddressLine1}" design="Bold" wrapping="true" labelFor="taSoAddressLine1" />
+                    <TextArea value="{oSOModel>/ADDSEQID/ADDRESS_LINE_1}" width="100%" id="taSoAddressLine1" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>AddressLine2}" design="Bold" wrapping="true" labelFor="taSoAddressLine2" />
+                    <TextArea value="{oSOModel>/ADDSEQID/ADDRESS_LINE_2}" width="100%" id="taSoAddressLine2" fieldGroupIds="InputField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>AddressLine3}" design="Bold" wrapping="true" labelFor="taSoAddressLine3" />
+                    <TextArea value="{oSOModel>/ADDSEQID/ADDRESS_LINE_3}" width="100%" id="taSoAddressLine3" fieldGroupIds="InputField" required="false" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>CountryCode}" design="Bold" wrapping="true" labelFor="cbSoCountryCode" />
+                    <ComboBox showSecondaryValues= "true" selectedKey="{oSOModel>/ADDSEQID/COUNTRY_CODE}" items="{oMainModel>/T_PHN_CODE}" width="100%" id="cbSoCountryCode" fieldGroupIds="ComboboxField" required="true" editable="true">
+                        <core:ListItem key="{oMainModel>COUNTRY_CODE}" text="{oMainModel>COUNTRY_NAME}"  additionalText="{oMainModel>COUNTRY_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>State}" design="Bold" labelFor="cbSoState" wrapping="true" />
+                    <ComboBox showSecondaryValues= "true" selectedKey="{oSOModel>/ADDSEQID/STATE}" items="{oMainModel>/T_STATE}" width="100%" id="cbSoState" fieldGroupIds="ComboboxField" required="false" editable="true">
+                        <core:ListItem key="{oMainModel>STATE_CODE}" text="{oMainModel>STATE_NAME}"  additionalText="{oMainModel>STATE_CODE}" />
+                    </ComboBox>
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>City}" design="Bold" labelFor="ipSoCity" wrapping="true" />
+                    <Input value="{oSOModel>/ADDSEQID/CITY}" width="100%" fieldGroupIds="InputField" required="true" editable="true" id="ipSoCity" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Label text="{i18n>PostalCode}" design="Bold" labelFor="ipSoPostalCode" wrapping="true" />
+                    <Input value="{oSOModel>/ADDSEQID/POSTAL_CODE}" id="ipSoPostalCode" type="Number" width="100%" fieldGroupIds="InputField" required="true" editable="true" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="true" />
+                    </layoutData>
+                </VBox>
+                <VBox>
+                    <Button  type="Emphasized" text="{i18n>btnProceedtoaddcontacts}" press="onfnnextpress4" width="100%" class="button1 header2" />
+                    <layoutData>
+                        <layout:GridData span="XL12 L12 M12 S12" linebreak="false" />
+                    </layoutData>
+                </VBox>
+            </form:content>
+        </form:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>
