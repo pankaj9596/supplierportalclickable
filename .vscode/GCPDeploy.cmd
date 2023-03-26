@@ -2,12 +2,12 @@
 echo "Deploying to GCP"
 echo Building image...
 
-docker build -t gcr.io/spmproject-371903/supplierportal:20230209 .
+docker build -t gcr.io/steam-form-381714/supplierportal:20230326 .
 echo "Image built successfully"
-@REM gcloud config set project spmproject-371903
+@REM gcloud config set project steam-form-381714
 @REM gcloud config set compute/region asia-southeast1
 @REM gcloud auth login
-@REM docker tag supplierportal:20230209 gcr.io/spmproject-371903/supplierportal:20230209
+@REM docker tag supplierportal:20230326 gcr.io/steam-form-381714/supplierportal:20230326
 @REM gcloud auth configure-docker
-docker push gcr.io/spmproject-371903/supplierportal:20230209
+docker push gcr.io/steam-form-381714/supplierportal:20230326
 echo "Image successfully pushed to GCP"
