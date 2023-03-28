@@ -14,11 +14,11 @@ sap.ui.define([
 
         return Controller.extend("com.spm.suppilerportal.controller.SupplierOnboarding", {
             onInit: function () {
-                
 
-/************************************Handling CSS for DEVICE Responsiveness*****************************/
+
+                /************************************Handling CSS for DEVICE Responsiveness*****************************/
                 var isMobile = this.getOwnerComponent().getModel("device").getProperty("/system/phone") ? true : false;
-                if(isMobile){
+                if (isMobile) {
                     this.getUIControl("flxBoxAccountInfo").addStyleClass("flexBoxHavingSimpleformInside");
                     this.getUIControl("flxBoxBasicInformation").addStyleClass("flexBoxHavingSimpleformInside");
                     this.getUIControl("flxBoxAddress").addStyleClass("flexBoxHavingSimpleformInside");
@@ -31,7 +31,7 @@ sap.ui.define([
                     this.getUIControl("flxBoxWithholdingTax").addStyleClass("flexBoxHavingSimpleformInside");
 
                 }
-                
+
 
                 var oModel = dataUtil.createJsonModel();
                 oModel.setData({
@@ -375,7 +375,7 @@ sap.ui.define([
                     emphasizedAction: sap.m.MessageBox.Action.OK,
                     onClose: function (sAction) {
                         that.onCancelForm();
-                        window.parent.location.replace("https://supplierportal-teh7la6xqa-as.a.run.app/index.html#/GenericTilesView")
+                        window.parent.location.replace("https://supplierportal-wstkn7335q-as.a.run.app/index.html#/GenericTilesView")
                         // that.getOwnerComponent().getRouter().navTo("GenericTilesView");
 
                     }

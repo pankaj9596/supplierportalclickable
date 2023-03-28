@@ -120,7 +120,7 @@ sap.ui.define([
 			var oConfigModel = that.getModel("oConfigModel"),
 				xhr = new XMLHttpRequest();
 			xhr.withCredentials = false;
-			
+
 			// Set response state handlers
 			if (requestObject.readystatechange !== undefined && requestObject.readystatechange !== null)
 				xhr.addEventListener("readystatechange", requestObject.readystatechange);
@@ -128,22 +128,22 @@ sap.ui.define([
 				xhr.addEventListener("load", requestObject.load);
 			if (requestObject.error !== undefined && requestObject.error !== null)
 				xhr.addEventListener("error", requestObject.error);
-			
+
 			xhr.open(requestObject.requestType, oConfigModel.getProperty("/domain") + oConfigModel.getProperty("/" + requestObject.requestURL));
-			
+
 			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.setRequestHeader("Access-Control-Allow-Origin", "https://sp-teh7la6xqa-as.a.run.app");
-			xhr.setRequestHeader("Domain", "https://sp-teh7la6xqa-as.a.run.app");
+			xhr.setRequestHeader("Access-Control-Allow-Origin", "https://sp-wstkn7335q-as.a.run.app");
+			xhr.setRequestHeader("Domain", "https://sp-wstkn7335q-as.a.run.app");
 			xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
-			xhr.setRequestHeader('Access-Control-Allow-Headers','Origin, Content-Type, Accept, Authorization, X-Request-With');
-			xhr.setRequestHeader("Access-Control-Allow-Methods",'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS');
-			if(data === "LOGOUT"){				
-				//xhr.setRequestHeader('Cookie', 'refreshToken=' + oConfigModel.getProperty("/" + requestObject.requestAuth) + ";Domain=sp-teh7la6xqa-as.a.run.app");
+			xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization, X-Request-With');
+			xhr.setRequestHeader("Access-Control-Allow-Methods", 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS');
+			if (data === "LOGOUT") {
+				//xhr.setRequestHeader('Cookie', 'refreshToken=' + oConfigModel.getProperty("/" + requestObject.requestAuth) + ";Domain=sp-wstkn7335q-as.a.run.app");
 				//xhr.setRequestHeader("Authorization", 'refreshToken=' + oConfigModel.getProperty("/" + requestObject.requestAuth) + ";Path=/; HttpOnly");
 				xhr.setRequestHeader("Authorization", oConfigModel.getProperty("/" + requestObject.requestAuth));
 				data = "";
 			}
-			else{
+			else {
 				xhr.setRequestHeader("Authorization", oConfigModel.getProperty("/" + requestObject.requestAuth));
 			}
 			xhr.responseType = "json";

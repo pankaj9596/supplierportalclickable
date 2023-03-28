@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Log) {
     "use strict";
     return {
-        fnBasePath: "https://spusermgmt-teh7la6xqa-as.a.run.app",
+        fnBasePath: "https://spusermgmt-wstkn7335q-as.a.run.app",
         // fnBasePath: "http://localhost:8080",
         fnCreate: function (sPath, oParameters, oPayLoad, oObjectId, ref) {
             try {
